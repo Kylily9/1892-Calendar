@@ -1,0 +1,179 @@
+body {
+  background: linear-gradient(120deg, lightskyblue, pink, lightpink);
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  margin: 0;
+  min-height: 100vh;
+}
+
+.navbar {
+  width: 100%;
+  background: #1e5ea8;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 25px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.navbar .logo {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar ul li {
+  display: inline-block;
+}
+
+.navbar ul li a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  transition: color 0.3s;
+}
+
+.navbar ul li a:hover {
+  color: #ffdf5d;
+}
+
+
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: #1e5ea8;
+    position: absolute;
+    top: 60px;
+    right: 0;
+    width: 200px;
+    padding: 15px;
+    border-radius: 0 0 10px 10px;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+.yearly-calendar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  padding: 40px;
+  max-width: 1400px;
+  margin: auto;
+}
+
+.calendar {
+  background: whitesmoke;
+  border: 1px solid #ccc;
+  border-radius: 18px;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.25);
+  text-align: center;
+}
+
+.month {
+  background: #1e5ea8;
+  color: white;
+  padding: 10px 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+thead tr th:nth-child(1), 
+tbody tr td:nth-child(1) { 
+  color: rgba(255, 0, 0, 0.645); 
+  font-weight: normal; 
+} 
+
+tbody tr td:nth-child(7){
+  color: rgba(0, 0, 255, 0.75);
+  font-weight: normal;
+}
+
+tbody tr td.holiday:nth-child(7) {
+  color: rgb(255, 0, 0);
+  font-weight: bold;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: center;
+  font-size: 16px;
+  height: 40px;
+}
+
+th {
+  background: #f1f1f1;
+}
+
+td.holiday {
+  color: red;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+tbody tr td.holiday:nth-child(1) {
+  color: red;
+  font-weight: bolder;
+  border-radius: 6px;
+  box-shadow: 0 0 8px red;
+}
+
+.holiday .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: 240px;
+  background: #fff;
+  color: #2c2c2c;
+  text-align: left;
+  padding: 12px 15px;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  position: absolute;
+  z-index: 10;
+  top: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.2);
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.holiday:hover .tooltip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.holiday .tooltip img {
+  width: 90px;
+  height: auto;
+  border-radius: 6px;
+}
